@@ -21,15 +21,16 @@ require 'faker'
 
 @villagers = ["Ian", "Braden", "Dallin", "Gordon", "Jared", "Dipesh", "Dave", "Tyson", "Ben", "Dan"]
 @survival = 0
-@town = Faker::Pokemon.location
+@town = Faker::StarWars.planet
 def night
 	@animorph = @villagers.sample
 	@victim = @villagers.sample
 	if @victim == @animorph && @villagers.length >= 2
 		@victim = @villagers.sample
 		night
+	else
+		@survival += 1
 	end
-	@survival += 1
 end
 
 def dragon_kill
